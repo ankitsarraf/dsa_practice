@@ -16,12 +16,12 @@ public class MergeSort {
 
         int m = 0;
         int n = 0;
-
+//        int temp = i;
         while(m < L.length && n < R.length) {
-            if(L[m] < R[n]) {
+            if(L[m] <= R[n]) {
                 arr[i++] = L[m++];
             } else {
-                arr[i++] = L[n++];
+                arr[i++] = R[n++];
             }
         }
 
