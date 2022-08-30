@@ -2,8 +2,8 @@ package interview.google.converttraversals;
 
 import java.util.Arrays;
 
+import array.search.NormalSearch;
 import interview.google.tree.TreeNode;
-import array.sorting.search.NormalSearch;
 
 public class PreAndInToPost implements Converter {
 
