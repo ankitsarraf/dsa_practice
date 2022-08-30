@@ -19,17 +19,38 @@ public class QuickSort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+//    taking first element as pivot
+//    private static int partition(int[] arr, int init, int last) {
+//        int pivotIndex = init; // taking first element as pivot
+//        int pivot = arr[pivotIndex];
+//        int pointerToSmallestInRange = init;
+//        // gathering all the number which is lesser than pivot at left hand
+//        for(int i = init+1; i <= last; i++) {
+//            if(arr[i] < pivot) {
+//                pointerToSmallestInRange++;
+//                swap(arr, pointerToSmallestInRange, i);
+//            }
+//        }
+//        swap(arr, pivotIndex, pointerToSmallestInRange);
+//        // now pivot will be swaped with the last gathered number. So now pivot will be in place
+////        System.err.println(pivot + " " + pointerToSmallestInRange + "-> "+Arrays.stream(arr).boxed().collect(Collectors.toList()));
+//        return pointerToSmallestInRange;
+//    }
 
+    //    taking last element as pivot
     private static int partition(int[] arr, int init, int last) {
-        int pivot = arr[init]; // taking first element as pivot
-        int pointerToSmallestInRange = init;
-        for(int i = init; i <= last; i++) {
+        int pivotIndex = last; // taking first element as pivot
+        int pivot = arr[pivotIndex];
+        int pointerToSmallestInRange = init-1;
+        // gathering all the number which is lesser than pivot at left hand
+        for(int i = init; i < last; i++) {
             if(arr[i] < pivot) {
-                swap(arr, pointerToSmallestInRange, i);
                 pointerToSmallestInRange++;
+                swap(arr, pointerToSmallestInRange, i);
             }
         }
-        System.err.println("-> "+Arrays.stream(arr).boxed().collect(Collectors.toList()));
+        // As pivot is last element. Now it will be swapped with the next to last small gathered number. So now pivot will be in place
+        swap(arr, pivotIndex, ++pointerToSmallestInRange);
         return pointerToSmallestInRange;
     }
 
